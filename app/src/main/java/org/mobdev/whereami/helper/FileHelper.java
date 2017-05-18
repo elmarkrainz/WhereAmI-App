@@ -1,4 +1,4 @@
-package org.mobdev.whereami;
+package org.mobdev.whereami.helper;
 
 import android.app.Activity;
 import android.content.Context;

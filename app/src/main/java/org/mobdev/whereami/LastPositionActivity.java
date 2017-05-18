@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import org.mobdev.whereami.helper.FileHelper;
+
 public class LastPositionActivity extends AppCompatActivity {
 
     @Override

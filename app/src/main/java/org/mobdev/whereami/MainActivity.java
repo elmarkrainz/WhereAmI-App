@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.mobdev.whereami.helper.LocationHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnLastPos;

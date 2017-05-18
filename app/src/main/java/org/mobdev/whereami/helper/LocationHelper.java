@@ -1,4 +1,4 @@
-package org.mobdev.whereami;
+package org.mobdev.whereami.helper;
 
 import android.app.Activity;
 
@@ -6,6 +6,9 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+
+import org.mobdev.whereami.helper.FileHelper;
+import org.mobdev.whereami.helper.GeoCodingHelper;
 
 /**
  * Created by krajn on 16/05/17.
@@ -40,8 +43,8 @@ public class LocationHelper implements LocationListener {
     @Override
     public void onLocationChanged(Location location) {
 
-        System.out.println(location.getLatitude());
-        System.out.println(location.getLongitude());
+     //   System.out.println(location.getLatitude());
+      //  System.out.println(location.getLongitude());
 
         //  Update element e.g Textview
 

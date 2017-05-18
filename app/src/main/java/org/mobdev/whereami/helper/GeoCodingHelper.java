@@ -1,7 +1,8 @@
-package org.mobdev.whereami;
+package org.mobdev.whereami.helper;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.provider.Settings;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -14,6 +15,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by EKrainz on 16/05/17.
@@ -33,19 +36,19 @@ public class GeoCodingHelper {
         this.lat = lat;
         this.lon = lon;
 
-        String url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=";
+        String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=";
 
         url += lat + "," + lon + "&sensor=true";
 
-        Log.i("GEOCODING", url);
+     //   Log.i("GEOCODING", url);
         HttpHelper httpHelper = new HttpHelper();
         httpHelper.execute(url);
+
     }
 
 
+
     private class HttpHelper extends AsyncTask<String, Void, String> {
-
-
 
         @Override
         protected String doInBackground(String... params) {
@@ -58,7 +61,7 @@ public class GeoCodingHelper {
                 URL url = new URL(params[0]);
 
                 // create Urlconnection
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
                 // read inputstream
@@ -67,7 +70,7 @@ public class GeoCodingHelper {
                 while ((line = reader.readLine()) != null) {
                     out.append(line);
                 }
-                Log.i("INTERNET", out.toString());
+//                Log.i("INTERNET", out.toString());
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -75,6 +78,7 @@ public class GeoCodingHelper {
 
             return out.toString(); // return of do in background method is input parameter to the  on-post-execude method
         }
+
 
         @Override
         protected void onPostExecute(String s) {
