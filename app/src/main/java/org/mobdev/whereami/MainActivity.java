@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         locationHelper.startRequestingLocation();
 
 
-        // todo
+        // todo -
         txtAddress.setText("HS Bremen, Flughafenallee 10, 28199 Bremen");
         txtCoords.setText("53.055138, 8.783160");
 

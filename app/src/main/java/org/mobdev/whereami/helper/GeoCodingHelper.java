@@ -2,8 +2,6 @@ package org.mobdev.whereami.helper;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.provider.Settings;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,7 +11,6 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -40,19 +37,19 @@ public class GeoCodingHelper {
 
         url += lat + "," + lon + "&sensor=true";
 
-     //   Log.i("GEOCODING", url);
         HttpHelper httpHelper = new HttpHelper();
         httpHelper.execute(url);
 
     }
 
 
-
+    /**
+     * Class to connect Url
+     */
     private class HttpHelper extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... params) {
-
 
             StringBuilder out = new StringBuilder();
             try {
@@ -76,7 +73,7 @@ public class GeoCodingHelper {
                 e.printStackTrace();
             }
 
-            return out.toString(); // return of do in background method is input parameter to the  on-post-execude method
+            return out.toString();
         }
 
 
@@ -96,6 +93,7 @@ public class GeoCodingHelper {
 
                 // TODO
                 // handle output in App
+
 
                 // e.g. save to file 
                 FileHelper fileHelper= new FileHelper(activity);

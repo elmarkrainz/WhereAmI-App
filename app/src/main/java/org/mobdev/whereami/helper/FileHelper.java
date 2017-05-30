@@ -18,7 +18,6 @@ public class FileHelper {
 
     private final Activity activity;
 
-
     public FileHelper(Activity activity) {
         this.activity = activity;
     }

@@ -43,16 +43,15 @@ public class LocationHelper implements LocationListener {
     @Override
     public void onLocationChanged(Location location) {
 
-     //   System.out.println(location.getLatitude());
-      //  System.out.println(location.getLongitude());
 
         //  Update element e.g Textview
 
         FileHelper fileHelper = new FileHelper(activity);
         fileHelper.saveToFile("coords.txt", location.getLatitude()+ ", "+ location.getLongitude() );
 
-
         GeoCodingHelper geoCodingHelper = new GeoCodingHelper(activity, location.getLatitude(),location.getLongitude());
+
+
 
     }
 
